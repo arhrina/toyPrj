@@ -41,3 +41,27 @@
    * 
    * 상수에 할당된 속성(실제 값)은 보호되지 않아서 얼마든지 변동이 가능하다. c의 #define, java의 final과는 다르게 값의 변경이 가능하다
    */
+
+   Boolean w = true; // false
+   null;
+   undefined;
+   Number intNumber = 7; // 숫자형. 정수, 실수 모두
+   String strTest = '문자열';
+   Symbol whatIsThis; // ECMAScript 6에서 도입. 인스턴스가 고유하고 불변
+
+   // 이상 원시데이터형
+
+
+   Object objectVariable; // 키와 값을 매핑하는 자료형. hashmap을 표현하는데 적합
+
+   /**
+    * 동적형지정 언어라서 변수형을 직접 지정해줄 필요가 없다
+    * 
+    * 
+    * 문자열에 들어있는 숫자도 +를 제외한 연산에서는 숫자로 계산한다. +의 경우 숫자를 더해도 모두 문자열로 취급한다
+    */
+
+    "37"+3; // 373
+    38-"4" // 33
+
+    // 문자열을 숫자로 변환하고자할 때는 parseInt()나 parseFloat() 등을 사용하여 변환한다. parseInt의 괄호에는 진법을 매개변수로 포함해주어야한다
