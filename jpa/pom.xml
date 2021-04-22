@@ -25,7 +25,8 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+			<version>1.4.199</version>
+			<!--<scope>runtime</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -40,6 +41,22 @@
 	</dependencies>
 
 	<build>
+
+		<!-- profile 설정 -->
+		<!-- <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>profile/**/**</exclude>
+				</excludes>
+			</resource>
+
+			<resource>
+				<directory></directory>
+			</resource>
+		</resources>
+		-->
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

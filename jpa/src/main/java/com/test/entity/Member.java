@@ -2,21 +2,22 @@ package com.test.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "Tb_Member")
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int pk;
-    @Column(name = "username", columnDefinition = "varchar(20) default 'April`s fool'")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-    private int age;
+    private Long age;
 
-    public Member(String name, int age) {
+    public Member(String name, Long age) {
         this.name = name;
         this.age = age;
     }

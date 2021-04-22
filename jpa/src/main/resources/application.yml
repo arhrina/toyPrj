@@ -1,0 +1,35 @@
+spring:
+
+# profile 설정
+  profiles:
+    active: dev
+
+# db설정
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+# H2 설정
+  h2:
+    console:
+      enabled: true
+
+# jpa 설정
+  jpa:
+
+    hibernate:
+      ddl-auto: create # 서버 기동시 db 생성 방식. 옵션 참고
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect # 방언설정
+        show_sql: true # sql문으로 console 표기 true
+        format_sql: true # 실행쿼리 가독성 있게 console 표기
+
+    # database-platform: org.hibernate.dialect.H2Dialect # db 플랫폼 지정 설정. 참고 https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/session-configuration.html#configuration-optional-dialects
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: trace # console sql문 ? parameter 로그 출력
