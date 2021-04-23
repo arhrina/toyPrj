@@ -14,7 +14,8 @@ import javax.persistence.EntityManager;
 import static org.assertj.core.api.Assertions.*; // static 등록해서 클래스 명시 제거
 
 @SpringBootTest
-@Transactional
+@Transactional  // 기본적으로 test에서는 rollback. @Commit을 추가해주면 테스트한 데이터도 올라간다
+				// test는 Memory DB에서만
 class QueryDslApplicationTests {
 	/**
 	 * 1. 최초 실행은 gradle에 위임한다. preference-gradle-gradle projects에 run using을 intellij로 변경하면 인텔리제이가 실행

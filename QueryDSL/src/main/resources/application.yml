@@ -1,0 +1,19 @@
+### yml 띄어쓰기 매우 중요 ###
+
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/querydsl
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+      properties:
+        hibernate: # sysout
+          show_sql: true
+          format_sql: true
+
+logging.level: # log
+  org.hibernate.SQL: debug
+  # org.hibernate.type: trace # log 찍히는 parameter ?의 실제 binding parameter 값을 볼 수 있는 옵션
