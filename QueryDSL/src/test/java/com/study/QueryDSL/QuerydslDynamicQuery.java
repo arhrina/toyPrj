@@ -119,9 +119,9 @@ public class QuerydslDynamicQuery {
 
     @Test
     public void sqlFunction() { // sql의 함수 사용
-        List<Tuple> result = queryFactory
-                .select(Expressions.stringTemplate("function('replace', {0}, {1}, {2})"), QMember.member.username, "MEMBER")
-                .from(QMember.member)
+        List<String> result = queryFactory
+                .select(Expressions.stringTemplate("function('replace', {0}, {1}, {2})", member.username, "member1", "M"))
+                .from(member)
                 .fetch();
     }
 }

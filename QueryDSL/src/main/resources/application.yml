@@ -17,4 +17,4 @@ spring:
 
 logging.level: # log
   org.hibernate.SQL: debug
-  # org.hibernate.type: trace # log 찍히는 parameter ?의 실제 binding parameter 값을 볼 수 있는 옵션
+  org.hibernate.type: trace # log 찍히는 parameter ?의 실제 binding parameter 값을 볼 수 있는 옵션
