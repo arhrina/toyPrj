@@ -123,4 +123,15 @@ class QuerydslTOdto {
                 .from(member)
                 .fetch();
     }
+
+    @Test
+    public void findDtoByQueryProjection() {
+        List<MemberDTO> result = queryFactory
+                .select(new QMemberDTO(member.username, member.age)) // constructor 방식과의 차이는, runtime error와 compile error
+                .from(member)
+                .fetch();
+        for(MemberDTO m : result) {
+            System.out.println(m);
+        }
+    }
 }
