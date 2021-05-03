@@ -8,7 +8,8 @@
     <artifactId>springboot-get-started-prj</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent><!-- spring boot parent prj 추가 -->
+    <!-- version 미기재시 spring boot parent의 parent에 명시된 버전으로 가져오도록 정의되있다다 -->
+    <parent><!-- spring boot parent prj 추가. parent 대신 다른 의존성으로 관리하려면 dependencyManagerment를 사용하거나 parent 대신 본 프로젝트의 artifactId를 parent로 -->
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
         <version>2.4.5</version>
@@ -19,6 +20,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
