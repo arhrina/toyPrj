@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+</head>
+<style>
+    table, tr, th, td {
+        border: 1px solid black;
+    }
+    table {
+        border-collapse: collapse;
+    }
+</style>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th th:text="글번호">input</th>
+                <th th:text="글제목">input</th>
+                <th th:text="작성일">input</th>
+                <th th:text="작성자">input</th>
+                <th th:text="조회수">input</th>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>TEST</td>
+                <td>21.05.27</td>
+                <td>IDIDIDIDID</td>
+                <td>7</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
