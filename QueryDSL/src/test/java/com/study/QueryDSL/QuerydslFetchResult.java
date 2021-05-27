@@ -121,7 +121,7 @@ public class QuerydslFetchResult {
         List<Member> result = jpaQueryFactory
                 .selectFrom(member)
                 .orderBy(member.username.desc())
-                .offset(1) // 시작값은 0
+                .offset(0) // 시작값은 0
                 .limit(2) // 가져오는 개수
                 .fetch();
 
@@ -134,7 +134,7 @@ public class QuerydslFetchResult {
         QueryResults<Member> result = jpaQueryFactory
                 .selectFrom(member)
                 .orderBy(member.username.desc())
-                .offset(1) // 시작값은 0
+                .offset(1) // 시작값은 0. 생략가능
                 .limit(2) // 가져오는 개수
                 .fetchResults();
 

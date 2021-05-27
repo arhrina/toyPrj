@@ -1,13 +1,13 @@
-package com.jpa.springboot;
+package toy.arhrina.board;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootJpaApplication {
+public class BoardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootJpaApplication.class, args);
+		SpringApplication.run(BoardApplication.class, args);
 	}
 
 }

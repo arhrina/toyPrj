@@ -1,10 +1,10 @@
-package com.jpa.springboot;
+package toy.arhrina.board;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootJpaApplicationTests {
+class BoardApplicationTests {
 
 	@Test
 	void contextLoads() {
