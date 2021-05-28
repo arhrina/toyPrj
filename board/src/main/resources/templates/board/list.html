@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+</head>
+<style>
+    table, tr, th, td {
+        border: 1px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aqua;
+    }
+</style>
+<script>
+    function moveWritePage() {
+        location.href = "/board/write";
+    }
+</script>
+<body>
+<div>
+    <h4 th:text="${boardText}">text</h4>
+</div>
+<div>
+    <table>
+        <tr>
+            <th th:text="글번호">input</th>
+            <th th:text="글제목">input</th>
+            <th th:text="작성일">input</th>
+            <th th:text="작성자">input</th>
+            <th th:text="조회수">input</th>
+        </tr>
+        <th:block th:if="${list.size() > 0}" th:each="list : ${list}">
+            <tr>
+                <td th:text="5">data</td>
+                <td th:text="list.subject">data</td>
+                <td th:text="21.10.11">data</td>
+                <td th:text="id">data</td>
+                <td th:text="6">data</td>
+            </tr>
+        </th:block>
+        <th:block th:if="${list.size() == 0}">
+            <tr>
+                <td th:text="NO-DATA" th:colspan="100"></td>
+            </tr>
+        </th:block>
+    </table>
+    <button th:type="button" th:text="글쓰기" th:onclick="moveWritePage()">
+        WRITE BUTTON
+    </button>
+</div>
+</body>
+</html>

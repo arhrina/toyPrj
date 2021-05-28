@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Write</title>
+</head>
+<style></style>
+<script>
+    function sendData() {
+
+    }
+</script>
+<body>
+    <form>
+        <input th:name="subject" th:id="subject" th:type="text" th:placeholder="제목"/>
+        <input th:name="memo" th:id="memo" th:type="text" th:placeholder="본문내용"/>
+        <button th:type="button" th:onclick="sendData()" th:text="전송"/>
+    </form>
+</body>
+</html>

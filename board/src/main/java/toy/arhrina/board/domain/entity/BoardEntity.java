@@ -1,11 +1,14 @@
 package toy.arhrina.board.domain.entity;
 
+import lombok.Getter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "BOARD")
+@Getter
 public class BoardEntity extends AuditEntity { // 상속받아 사용하면 audit 완성
 
     @Id
