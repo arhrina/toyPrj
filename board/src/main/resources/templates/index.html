@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="shortcut icon" href="../images/docker.png">
 <head>
     <meta charset="UTF-8">
     <title>WELCOME TO THIS PAGE</title>
 </head>
 <body>
-    <p th:text='welcome'>input your text</p>
+    <h1 th:text='WELCOME' style="width: 50%; height: 50%;">input your text</h1>
+    <img src="../images/docker.jpg"/>
+    <img src="../images/docker.png"/>
+    <img src="../images/IMG_0780.gif"/>
+    <a href="/board/list"><img src="../images/lilacIU.gif"/></a>
+    <video autoplay loop controls muted>
+        <source src="../images/DimwittedWigglyGoldenretriever-mobile.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <img src="../images/unnamed.gif"/>
+    <img src="../images/다운로드.jpg"/>
+    <video th:autoplay="true" th:loop="true" th:controls="true" muted>
+        <source src="../images/3df2e832bf56b9f50b525087cd19d1fb44e25844e63ad0d742c0fa1c75c07e17.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </body>
 </html>

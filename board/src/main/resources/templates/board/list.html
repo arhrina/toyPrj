@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+</head>
+<style>
+    table, tr, th, td {
+        border: 1px solid black;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: aqua;
+    }
+</style>
+<script>
+    function moveWritePage() {
+        location.href = "/board/write";
+    }
+
+    function moveView(id) {
+        location.href = "/board/view?id=" + id;
+    }
+</script>
+<body>
+<div>
+    <h4 th:text="${boardText}">text</h4>
+</div>
+<div>
+    <table>
+        <tr>
+            <th th:text="글번호">input</th>
+            <th th:text="글제목">input</th>
+            <th th:text="작성일">input</th>
+            <th th:text="작성자">input</th>
+            <th th:text="조회수">input</th>
+        </tr>
+        <!-- 현재 시점에서 thymeleaf의 onclick으로 el tag값 넘기는 방법
+         참조 https://stackoverflow.com/questions/32650536/using-thymeleaf-variable-in-onclick-attribute/52960571#52960571-->
+        <th:block th:if="${list}" th:each="list : ${list}">
+            <tr th:attr="onclick=|moveView('${list.id}')|">
+                <td th:text="${list.id}">pk</td>
+                <td th:text="${list.subject}">제목</td>
+                <td th:text="${list.createdDate}">생성일자</td>
+                <td th:text="${list.createdBy}">글쓴이</td>
+                <td th:text="${list.views}">조회수</td>
+            </tr>
+        </th:block>
+        <th:block th:if="${list.size() == 0}">
+            <tr>
+                <td th:text="NO-DATA" th:colspan="100"></td>
+            </tr>
+        </th:block>
+    </table>
+    <button th:type="button" th:text="글쓰기" th:onclick="moveWritePage()">
+        WRITE BUTTON
+    </button>
+</div>
+</body>
+</html>

@@ -1,11 +1,12 @@
 package toy.arhrina.board.domain.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import org.hibernate.annotations.ColumnDefault;
 
-@Entity
+import javax.persistence.*;
+
+@Entity(name = "BOARD")
+@Getter // getter 꼭 필요함
 public class BoardEntity extends AuditEntity { // 상속받아 사용하면 audit 완성
 
     @Id
@@ -14,4 +15,22 @@ public class BoardEntity extends AuditEntity { // 상속받아 사용하면 audi
 
     private String subject;
     private String memo;
+
+    @ColumnDefault("0")
+    private int views;
+
+    public BoardEntity(String subject, String memo) {
+        super();
+        this.subject = subject;
+        this.memo = memo;
+    }
+
+    public BoardEntity() {
+
+    }
+
+    public int addViews() {
+        this.views++;
+        return this.views;
+    }
 }
