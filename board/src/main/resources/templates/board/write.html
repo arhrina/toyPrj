@@ -7,14 +7,19 @@
 <style></style>
 <script>
     function sendData() {
-
+        var data = {
+            'subject': document.querySelector("#subject").value,
+            'memo' : document.querySelector("#memo").value
+        }
+        document.querySelector("#form").submit();
     }
 </script>
 <body>
-    <form>
+    <form id="form" action="/board/savePost" method="post">
         <input th:name="subject" th:id="subject" th:type="text" th:placeholder="제목"/>
-        <input th:name="memo" th:id="memo" th:type="text" th:placeholder="본문내용"/>
-        <button th:type="button" th:onclick="sendData()" th:text="전송"/>
+        </br>
+        <input style="height: 200px; width: 200px; margin-top: 15px;" th:name="memo" th:id="memo" th:type="text" th:placeholder="본문내용"/>
     </form>
+    <button th:type="button" th:onclick="sendData()" th:text="전송"/>
 </body>
 </html>

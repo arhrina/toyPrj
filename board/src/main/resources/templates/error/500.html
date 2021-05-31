@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Oops sry</title>
+</head>
+<body>
+  <img src="../../images/docker.png"/>
+  <p>Oops, Something goes wrong. Please contact <a href="https://github.com/arhrina/toyPrj/issues/new">me</a>
+      </br>and copy under message</p>
+
+    <p th:text="${'path: ' + path}">ERROR</p>
+    <p th:text="${'status: ' + status}">ERROR</p>
+    <p th:text="${'timestamp: ' + timestamp}">ERROR</p>
+    <p th:text="${'error: ' + error}">ERROR</p>
+    <p th:text="${'errors: ' + erros}">ERROR</p>
+    <p th:text="${'exception: ' + exception}">ERROR</p>
+    <p th:text="${'message: ' + message}">ERROR</p>
+    <p th:text="${'trace: ' + trace}">ERROR</p>
+</body>
+</html>

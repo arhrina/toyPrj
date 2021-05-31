@@ -1,5 +1,6 @@
 package toy.arhrina.board.domain.entity;
 
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -7,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass // 상속시에 field만을 받아갈 수 있게 해준다. 정확하게 entity는 아닌 클래스
 public class AuditEntity {

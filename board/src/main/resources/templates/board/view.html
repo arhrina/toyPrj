@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Page</title>
+</head>
+<script th:inline="javascript">
+    function moveBack() {
+        history.back();
+    }
+
+    function moveModi() {
+        location.href="/board/modify?id=[(${data.id})]"
+    }
+
+    function moveDele() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href="/board/delete?id=[(${data.id})]";
+        }
+    }
+</script>
+<body>
+<p th:text="${data.id}">id</p>
+<p th:text="${data.subject}">id</p>
+<p th:text="${data.memo}">id</p>
+<p th:text="${data.createdDate}">id</p>
+<p th:text="${data.createdBy}">id</p>
+<button th:type="button" th:attr="onclick=|javascript:moveBack()|" th:text="뒤로">뒤</button>
+<button th:type="button" th:attr="onclick=|javascript:moveModi()|" th:text="수정">수정</button>
+<button th:type="button" th:attr="onclick=|javascript:moveDele()|" th:text="삭제">삭제</button>
+</body>
+</html>
