@@ -26,7 +26,7 @@
 <p th:text="${data.createdDate}">id</p>
 <p th:text="${data.createdBy}">id</p>
 <button th:type="button" th:attr="onclick=|javascript:moveBack()|" th:text="뒤로">뒤</button>
-<button th:type="button" th:attr="onclick=|javascript:moveModi()|" th:text="수정">수정</button>
+<button th:type="button" th:onclick="|javascript:moveModi()|" th:text="수정">수정</button>
 <button th:type="button" th:attr="onclick=|javascript:moveDele()|" th:text="삭제">삭제</button>
 </body>
 </html>

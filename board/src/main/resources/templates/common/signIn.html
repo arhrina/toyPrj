@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-In</title>
+</head>
+<style>
+    input.password {
+        -webkit-text-security: disc;
+    }
+</style>
+<script th:inline="javascript">
+    function signIn() {
+        if(document.querySelector("input[name=id]").value == "" || document.querySelector("input[name=password]").value == "") {
+            alert('아이디와 비밀번호를 확인해주세요');
+            return;
+        }
+
+        var xhr = new XMLHttpRequest();
+        var data = {
+            id: document.querySelector("input[name=id]").value,
+            password: document.querySelector("input[name=password]").value
+        }
+        xhr.open('POST', '/sign-in');
+        xhr.send(JSON.stringify(data));
+        xhr.onload = function () {
+            if (xhr.status == 200 || xhr.status == 201) {
+                console.log(xhr.responseText);
+            } else {
+                console.error(xhr.responseText);
+            }
+        };
+    }
+
+    function signOn() {
+        location.href = "/join";
+    }
+</script>
+<body>
+<input th:name="id" th:type="text" th:placeholder="아이디">
+<input th:name="password" th:class="password" th:placeholder="비밀번호">
+<button th:type="button" th:text="로그인" th:onclick="|javascript:signIn()|"/>
+<button th:type="button" th:text="회원가입" th:onclick="|javascript:signOn()|"/>
+</body>
+</html>

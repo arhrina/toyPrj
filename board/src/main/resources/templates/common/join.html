@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Page</title>
+</head>
+<script th:inline="javascript">
+
+    // document.querySelector(".password").autocomplete({
+    //     focus: function(event, ui) {
+    //         return false;
+    //     }
+    // });
+
+  function send() {
+
+      if(document.querySelector("input[name=id]").value == "" || document.querySelector("input[name=password]").value == "") {
+          alert("잘못된 값이 입력되었습니다.");
+          return;
+      }
+      else {
+          if(document.querySelector("input[name=password]").value == document.querySelector("input[name=passwordCheck]").value) {
+              var xhr = new XMLHttpRequest();
+              var data = {
+                  "id" : document.querySelector("input[name=id]").value,
+                  "password" : document.querySelector("input[name=password]").value
+              }
+
+              xhr.open('POST', '/joinMember');
+              xhr.send(JSON.stringify(data));
+
+              xhr.onload = function () { // callback 함수
+                  if ((xhr.readyState == 200 || xhr.status == 200) && xhr.responseText == "success") {
+                      location.href = "/sign-in";
+
+                  } else {
+                      console.error(xhr.responseText);
+                      alert('에러가 발생했습니다');
+                  }
+              };
+          }
+          else {
+              alert('비밀번호를 다시 확인하세요');
+              document.querySelector("input[name=password]").focus();
+              return;
+          }
+      }
+  }
+
+  function seePwd() {
+      if(document.querySelector("button[name=see]") != null) {
+          document.querySelector(".password").style.webkitTextSecurity = "none";
+          document.querySelector("button[name=see]").innerText = "비밀번호 가리기";
+          document.querySelector("button[name=see]").name = "hide";
+      }
+      else {
+          document.querySelector(".password").style.webkitTextSecurity = "disc";
+          document.querySelector("button[name=hide]").innerText = "비밀번호보기";
+          document.querySelector("button[name=hide]").name = "see";
+      }
+  }
+</script>
+<style>
+    input.password { -webkit-text-security: disc;}
+</style>
+<body>
+      <input th:type="text" name="id" th:placeholder="아이디" autocomplete="off"/>
+      <input th:class="password" name="password" th:placeholder="비밀번호" autocomplete="off"/>
+      <input th:class="password" name="passwordCheck" th:placeholder="비밀번호확인"/>
+  <button th:type="button" th:text="비밀번호보기" th:onclick="|javascript:seePwd()|" th:name="see"/>
+  <button th:type="button" th:text="등록" th:onclick="|javascript:send()|"/>
+</body>
+</html>
