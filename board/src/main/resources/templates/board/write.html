@@ -16,9 +16,10 @@
 </script>
 <body>
     <form id="form" action="/board/savePost" method="post">
-        <input th:name="subject" th:id="subject" th:type="text" th:placeholder="제목"/>
+        <!--  -->
+        <input th:name="subject" th:id="subject" th:type="text" th:placeholder="제목" th:value="${data eq empty ? '' : data.subject}"/>
         </br>
-        <input style="height: 200px; width: 200px; margin-top: 15px;" th:name="memo" th:id="memo" th:type="text" th:placeholder="본문내용"/>
+        <input style="height: 200px; width: 200px; margin-top: 15px;" th:name="memo" th:id="memo" th:type="text" th:placeholder="본문내용" th:value="${data != empty ? data.memo : ''}"/>
     </form>
     <button th:type="button" th:onclick="sendData()" th:text="전송"/>
 </body>

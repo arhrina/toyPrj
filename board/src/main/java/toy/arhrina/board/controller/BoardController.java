@@ -14,12 +14,6 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @ResponseBody
-    @GetMapping("/responsebodyPage")
-    public String testPage() {
-        return "TEST";
-    }
-
     @GetMapping(value = "/list")
     public String viewList(Model model) {
         model.addAttribute("boardText", "무슨 게시판일까요?");
