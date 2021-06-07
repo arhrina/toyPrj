@@ -12,4 +12,22 @@ public class NormalController {
     public String index() {
         return "index";
     }
+
+    @ResponseBody
+    @GetMapping(value = "/shop/mypage")
+    public String user() {
+        return "access user";
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/shop/admin/pay")
+    public String admin() {
+        return "access admin";
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/shop/admin/**")
+    public String sys() {
+        return "access sys";
+    }
 }
