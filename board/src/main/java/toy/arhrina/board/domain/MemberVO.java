@@ -12,4 +12,5 @@ import lombok.ToString;
 public class MemberVO {
     private Long id;
     private String memberId;
+    private String role;
 }

@@ -22,10 +22,12 @@ public class MemberEntity {
     private String memberId;
     private String password;
     private String salt;
+    private String role;
 
-    public MemberEntity(String id, String password) {
+    public MemberEntity(String id, String password, String role) {
         this.memberId = id;
         makeHashPassword(password);
+        this.role = role;
     }
 
 

@@ -23,7 +23,8 @@
               var xhr = new XMLHttpRequest();
               var data = {
                   "id" : document.querySelector("input[name=id]").value,
-                  "password" : document.querySelector("input[name=password]").value
+                  "password" : document.querySelector("input[name=password]").value,
+                  "role" : document.querySelector("input[name=role]").value
               }
 
               xhr.open('POST', '/joinMember');
@@ -67,6 +68,7 @@
       <input th:type="text" name="id" th:placeholder="아이디" autocomplete="off"/>
       <input th:class="password" name="password" th:placeholder="비밀번호" autocomplete="off"/>
       <input th:class="password" name="passwordCheck" th:placeholder="비밀번호확인"/>
+      <input th:type="text" name="role" th:placeholder="역할" autocomplete="off"/>
   <button th:type="button" th:text="비밀번호보기" th:onclick="|javascript:seePwd()|" th:name="see"/>
   <button th:type="button" th:text="등록" th:onclick="|javascript:send()|"/>
 </body>

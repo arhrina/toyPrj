@@ -1,8 +1,10 @@
 package toy.arhrina.board.security.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -10,10 +12,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import toy.arhrina.board.provider.CustomAuthenticationProvider;
+import toy.arhrina.board.service.CustomUserDetailsService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +30,21 @@ import java.security.cert.Extension;
 @EnableWebSecurity // WebSecurityConfiguration, SpringWebMvc 등 여러 보안 관련 클래스들을 import하여 활성화
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Override
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userDetailsService); // 생성한 custom UserDetails 객체로 인증하도록 override
+        auth.authenticationProvider(authenticationProvider()); // 인증처리시 authenticationProvider로 동작
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        return new CustomAuthenticationProvider();
+    }
+
+    //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        String password = passwordEncoder().encode("1111");
 //

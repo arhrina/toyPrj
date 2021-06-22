@@ -1,4 +1,4 @@
-package me.arhrina.controller;
+package me.arhrina.synchronous.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
