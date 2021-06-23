@@ -1,4 +1,4 @@
-package me.arhrina.security.handler;
+package me.arhrina.synchronous.security.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;

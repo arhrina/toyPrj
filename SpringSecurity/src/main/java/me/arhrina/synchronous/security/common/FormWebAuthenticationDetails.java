@@ -1,4 +1,4 @@
-package me.arhrina.security.common;
+package me.arhrina.synchronous.security.common;
 
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 

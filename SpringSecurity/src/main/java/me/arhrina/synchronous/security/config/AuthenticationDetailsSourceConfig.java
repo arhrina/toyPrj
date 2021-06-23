@@ -1,12 +1,10 @@
-package me.arhrina.security.config;
+package me.arhrina.synchronous.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationDetailsSource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import javax.annotation.Resource;
 
 @EnableWebSecurity
 public class AuthenticationDetailsSourceConfig extends WebSecurityConfigurerAdapter {

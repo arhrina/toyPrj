@@ -1,4 +1,4 @@
-package me.arhrina.security.config;
+package me.arhrina.synchronous.security.config;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
