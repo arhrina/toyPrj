@@ -50,7 +50,7 @@ public class MemberService {
     }
 
     public boolean saveMember(Map<String, String> jsonMap) {
-        MemberEntity memberEntity = new MemberEntity(jsonMap.get("id"), jsonMap.get("password"));
+        MemberEntity memberEntity = new MemberEntity(jsonMap.get("id"), jsonMap.get("password"), jsonMap.get("role"));
         MemberEntity save = memberRepository.save(memberEntity);
         if(save != null) {
             return true;
