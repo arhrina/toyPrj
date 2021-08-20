@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>일일결산</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" th:inline="javascript">
+    $(document).ready(function() {
+        $("button[name='sbmit']").click(function() {
+            var formData = {
+                "매출" : $("input[name='매출']").val(),
+                "지출" : $("input[name='지출']").val()
+            };
+
+            $.ajax({
+                method: 'POST',
+                url: '/account/settlementWrite',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                success: function(data) {
+                    alert('성공');
+                    return;
+                },
+                failure: function(x, h, r) {
+                    alert('실패');
+                    return;
+                }
+            });
+        });
+    });
+</script>
+<body>
+
+<h4 style="color: red"><b>하루 결산은 1회밖에 할 수 없습니다.</b></h4>
+<p th:text="${modelDay}"></p>
+<div>
+    <p>오늘 매출:</p><input type="text" name="매출" placeholder="오늘의 매출을 숫자로만 입력"/>
+    <p>오늘 지출:</p><input type="text" name="지출" placeholder="오늘의 지출을 숫자로만 입력"/>
+    <button th:type="button" name="sbmit">오늘 결산 입력</button>
+</div>
+</body>
+</html>
