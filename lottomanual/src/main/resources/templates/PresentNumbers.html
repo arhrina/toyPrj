@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="GOODLUCK">UNTITLED</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script th:inline="javascript">
+    function six() {
+        $.ajax({
+            url: "/getSix",
+            type: "POST",
+            data: {
+                "request" : "true"
+            },
+            dataType: "json",
+            success: function(data) {
+                let a = document.createElement("div");
+                a.innerText = data.data;
+                $("#lottoNum").append(a);
+            },
+            error: function(xhr, status, error) {
+                console.log(xhr, status, error);
+            }
+        });
+    }
+
+    function fiveGame() {
+        for(let a = 0; a < 5; a++) {
+            six();
+        }
+    }
+
+    function clearGame() {
+        document.querySelector("#lottoNum").innerText = "";
+    }
+</script>
+<body>
+    <div id="lottoNum"></div>
+    <button type="button" th:onclick="'javascript:six()'" th:text="게임생성">버튼</button>
+    <button type="button" th:onclick="'javascript:fiveGame()'" th:text="5게임생성">버튼</button>
+    <button type="button" th:onclick="'javascript:clearGame()'" th:text="비우기">버튼</button>
+</body>
+</html>

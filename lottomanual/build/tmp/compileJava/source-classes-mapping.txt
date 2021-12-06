@@ -1,0 +1,8 @@
+com/example/lottomanual/controller/MainController.java
+ com.example.lottomanual.controller.MainController
+com/example/lottomanual/LottomanualApplication.java
+ com.example.lottomanual.LottomanualApplication
+com/example/lottomanual/service/LottoService.java
+ com.example.lottomanual.service.LottoService
+com/example/lottomanual/controller/rest/MainRestController.java
+ com.example.lottomanual.controller.rest.MainRestController
