@@ -1,0 +1,16 @@
+# version: 도커 컴포즈의 버전
+version: "3"
+# services: 실행하려는 여러 컨테이너들
+    # redis-server: 컨테이너 이름
+        # image: 컨테이너에서 사용하는 이미지
+    # node-app: 컨테이너 이름
+        # build: dockerfile 디렉터리
+        # ports: 포트 매핑. 로컬:컨테이너 포트
+
+services:
+    redis-server:
+        image: "redis"
+    node-app:
+        build: .
+        ports:
+            - "5000:8080"
